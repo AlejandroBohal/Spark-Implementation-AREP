@@ -1,0 +1,9 @@
+edu\escuelaing\arep\servers\Response.class
+edu\escuelaing\arep\urlreader\URLScanner.class
+edu\escuelaing\arep\sparkframework\SparkAServer.class
+edu\escuelaing\arep\servers\Request.class
+edu\escuelaing\arep\servers\DataBaseConnection.class
+edu\escuelaing\arep\sparkframework\SparkA.class
+edu\escuelaing\arep\sparkframework\Handler.class
+edu\escuelaing\arep\urlreader\URLReader.class
+edu\escuelaing\arep\servers\HTTPServer.class
