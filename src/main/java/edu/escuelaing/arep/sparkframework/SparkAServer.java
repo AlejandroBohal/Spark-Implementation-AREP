@@ -10,6 +10,7 @@ public class SparkAServer {
         server.start();
         SparkA.get("/lol",(request, response) -> "Hola");
         DataBaseTest db = new DataBaseTest();
-        SparkA.get("/database",(request, response) -> db.getExampleMongo().toString());
+        SparkA.get("/database1",(request, response) -> db.getExampleMongo().toString());
+        SparkA.post("/database2",(request, response) -> "Body" + request.getBody());
     }
 }

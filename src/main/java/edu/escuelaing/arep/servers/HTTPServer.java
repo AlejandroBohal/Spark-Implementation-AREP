@@ -58,16 +58,20 @@ public class HTTPServer extends Thread{
             if (!in.ready()) {
                 break;
             }
-            break;
+            if(inputLine.length() == 0){
+                break;
+            }
+
         }
         if(req.getType().equals("POST")){
             StringBuilder body = new StringBuilder();
-            while(in.ready()){
-                body.append((char) in.read());
+            while (in.ready() && in.read()!=-1) {
+                body.append(in.read());
             }
             req.setBody(body.toString());
+
         }
-        if (!(req.getType().equals(""))){
+        if(!req.getType().equals("") || !req.getBody().equals("") ){
             createResponse(req, new PrintStream(
                     clientSocket.getOutputStream(), true));
         }in.close();
