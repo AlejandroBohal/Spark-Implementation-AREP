@@ -78,6 +78,9 @@ public class HTTPServer extends Thread{
 
     }
     private void createResponse(Request req, PrintStream out) {
+        if (req.getPath().equals("/")){
+            req.setPath("/index.html");
+        }
         Response res = new Response();
         Response response = SparkA.exec(req);
         try {
@@ -101,6 +104,9 @@ public class HTTPServer extends Thread{
     }
     private void getResource(Response res, String fileName, PrintStream out) throws IOException {
         File file = new File(staticPath + fileName);
+        if(fileName.equals("/")){
+            fileName = "index.html";
+        }
         if (file.exists()) {
             String fd = staticPath + fileName;
             InputStream f = new FileInputStream(fd);
