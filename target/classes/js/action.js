@@ -9,13 +9,6 @@ btn.addEventListener('click',() =>{
         .catch( error =>{
             console.log(error);
         })
-    axios.post('http://localhost:5000/calculate', numbers)
-        .then(res => {
-            doPost(res);
-        })
-        .catch( error =>{
-            console.log(error);
-        })
     function doPost(res) {
         $('.mean').html('');
         $('.std').html('');

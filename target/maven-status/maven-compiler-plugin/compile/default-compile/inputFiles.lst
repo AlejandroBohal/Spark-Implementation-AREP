@@ -1,9 +1,11 @@
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\urlreader\URLReader.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\servers\HTTPServer.java
+D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\persistence\Cliente.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\servers\Request.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\sparkframework\SparkA.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\sparkframework\Handler.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\urlreader\URLScanner.java
+D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\persistence\DataBaseConnection.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\sparkframework\SparkAServer.java
-D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\servers\DataBaseConnection.java
+D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\persistence\DataBaseTest.java
 D:\Windows\Documents\SparkA\src\main\java\edu\escuelaing\arep\servers\Response.java
