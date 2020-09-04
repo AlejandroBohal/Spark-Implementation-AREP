@@ -127,5 +127,11 @@ public class HTTPServer extends Thread{
         this.staticPath = staticPath;
     }
 
+    public int getPort() {
+        return port;
+    }
 
+    public void setPort(int port) {
+        this.port = port;
+    }
 }
