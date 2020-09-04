@@ -1,4 +1,5 @@
-let url = "http://localhost:36000/clients";
+//let url = "http://localhost:36000/clients";
+let url = "https://spark-implementation-alejandro.herokuapp.com/";
 getClients();
 let btn = document.getElementById('add-client');
 btn.addEventListener('click',() =>{
