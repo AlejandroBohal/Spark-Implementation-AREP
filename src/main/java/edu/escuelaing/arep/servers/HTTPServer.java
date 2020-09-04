@@ -72,7 +72,7 @@ public class HTTPServer extends Thread{
             req.setBody(body.toString());
 
         }
-        if(!req.getType().equals("") || !req.getBody().equals("") ){
+        if(!req.getType().equals("")){
             createResponse(req, new PrintStream(
                     clientSocket.getOutputStream(), true));
         }in.close();
