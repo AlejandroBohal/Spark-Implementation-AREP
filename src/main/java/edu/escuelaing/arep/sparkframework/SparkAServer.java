@@ -22,7 +22,6 @@ public class SparkAServer {
         System.out.println(clientes);
         SparkA.get("/lol",(request, response) -> "Hola");
         SparkA.get("/clients",(request, response) -> {
-            System.out.println(new Gson().toJson(dataBase.getClients()));
             return new Gson().toJson(dataBase.getClients());
         });
         SparkA.post("/clients",(request, response) -> {
