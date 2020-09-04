@@ -61,6 +61,7 @@ public class HTTPServer extends Thread{
             if(inputLine.length() == 0){
                 break;
             }
+            break;
 
         }
         if(req.getType().equals("POST")){

@@ -20,4 +20,5 @@ public class SparkAServer {
         }
         return 36000; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
+
 }
