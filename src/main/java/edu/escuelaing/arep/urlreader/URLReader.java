@@ -6,12 +6,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The type Url reader.
+ */
 public class URLReader {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         readURL("http://localhost:36000/archivo.txt");
     }
 
+    /**
+     * Read url.
+     *
+     * @param siteToRead the site to read
+     */
     public static void readURL(String siteToRead) {
         try {
             URL siteURL = new URL(siteToRead);

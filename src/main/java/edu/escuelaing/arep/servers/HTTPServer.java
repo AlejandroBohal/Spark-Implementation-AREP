@@ -5,13 +5,26 @@ import java.net.*;
 import java.io.*;
 
 
+/**
+ * The type Http server.
+ */
 public class HTTPServer extends Thread{
 
     private int port = 36000;
     private String staticPath = "src/main/resources";
     private boolean running;
+
+    /**
+     * Instantiates a new Http server.
+     */
     public HTTPServer() {
     }
+
+    /**
+     * Instantiates a new Http server.
+     * With a specific port
+     * @param port the port
+     */
     public HTTPServer(int port) {
         this.port = port;
     }
@@ -130,14 +143,29 @@ public class HTTPServer extends Thread{
         out.close();
     }
 
+    /**
+     * Sets static path.
+     *
+     * @param staticPath the static path
+     */
     public void setStaticPath(String staticPath) {
         this.staticPath = staticPath;
     }
 
+    /**
+     * Gets port.
+     *
+     * @return the port
+     */
     public int getPort() {
         return port;
     }
 
+    /**
+     * Sets port.
+     *
+     * @param port the port
+     */
     public void setPort(int port) {
         this.port = port;
     }

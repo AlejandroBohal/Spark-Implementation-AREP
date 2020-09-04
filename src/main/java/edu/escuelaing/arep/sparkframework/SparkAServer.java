@@ -11,8 +11,17 @@ import org.bson.Document;
 
 import java.util.List;
 
+
+/**
+ * The type Spark a server.
+ */
 public class SparkAServer {
 
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String[] args){
         HTTPServer server =  new HTTPServer();
         server.setPort(getPort());
@@ -30,6 +39,12 @@ public class SparkAServer {
             return gson.toJson(request.getBody());
         });
     }
+
+    /**
+     * Gets port.
+     *
+     * @return the port
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));

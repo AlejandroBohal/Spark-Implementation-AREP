@@ -3,10 +3,24 @@ package edu.escuelaing.arep.urlreader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * The type Url scanner.
+ */
 public class URLScanner {
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String[] args){
         scanURL("https://ldbn.is.escuelaing.edu.co/courses/Quantum/index.html");
     }
+
+    /**
+     * Scan url.
+     *
+     * @param siteUrl the site url
+     */
     public static void scanURL (String siteUrl){
         try {
             URL site = new URL(siteUrl);
