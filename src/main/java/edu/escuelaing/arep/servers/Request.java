@@ -39,4 +39,7 @@ public class Request {
     public void setBody(String body) {
         this.body = body;
     }
+    public void setHeader(String key,String value){
+        headersMap.put(key,value);
+    }
 }

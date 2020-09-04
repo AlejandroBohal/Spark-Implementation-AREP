@@ -1,7 +1,15 @@
 package edu.escuelaing.arep.sparkframework;
 
-import edu.escuelaing.arep.persistence.DataBaseTest;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import edu.escuelaing.arep.persistence.Cliente;
+import edu.escuelaing.arep.persistence.DataBaseConnection;
 import edu.escuelaing.arep.servers.HTTPServer;
+
+import com.google.gson.Gson;
+import org.bson.Document;
+
+import java.util.List;
 
 public class SparkAServer {
 
@@ -9,10 +17,19 @@ public class SparkAServer {
         HTTPServer server =  new HTTPServer();
         server.setPort(getPort());
         server.start();
+        DataBaseConnection dataBase = new DataBaseConnection();
+        List<Cliente> clientes= dataBase.getClients();
+        System.out.println(clientes);
         SparkA.get("/lol",(request, response) -> "Hola");
-        DataBaseTest db = new DataBaseTest();
-        SparkA.get("/database1",(request, response) -> db.getExampleMongo().toString());
-        SparkA.post("/database2",(request, response) -> "Body" + request.getBody());
+        SparkA.get("/clients",(request, response) -> {
+            System.out.println(new Gson().toJson(dataBase.getClients()));
+            return new Gson().toJson(dataBase.getClients());
+        });
+        SparkA.post("/clients",(request, response) -> {
+            Gson gson = new Gson();
+            dataBase.insert(request.getBody());
+            return gson.toJson(request.getBody());
+        });
     }
     static int getPort() {
         if (System.getenv("PORT") != null) {

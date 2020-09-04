@@ -52,31 +52,37 @@ public class HTTPServer extends Thread{
                 new InputStreamReader(clientSocket.getInputStream()));
         String inputLine;
         Request req = new Request();
+        boolean requestLineReady = false;
         while ((inputLine = in.readLine()) != null) {
-            req.setType(inputLine.split(" ")[0]);
-            req.setPath(inputLine.split(" ")[1]);
-            if (!in.ready()) {
+            if (!requestLineReady) {
+                req.setType(inputLine.split(" ")[0]);
+                req.setPath(inputLine.split(" ")[1]);
+                requestLineReady = true;
+            } else {
+                String[] entry = (inputLine.split(":"));
+                if (entry.length > 1) {
+                    req.setHeader(entry[0], entry[1]);
+                }
+            }
+            if (!in.ready() || inputLine.length()==0) {
                 break;
             }
-            if(inputLine.length() == 0){
-                break;
-            }
-            break;
-
         }
-        if(req.getType().equals("POST")){
-            StringBuilder body = new StringBuilder();
-            while (in.ready() && in.read()!=-1) {
-                body.append(in.read());
+
+        StringBuilder body = new StringBuilder();
+        if (req.getType().equals("POST")) {
+            int c = 0;
+            int cl = Integer.parseInt(req.getHeadersMap().get("Content-Length").trim());
+            for (int i = 0; i < cl; i++) {
+                c = in.read();
+                body.append((char) c);
             }
             req.setBody(body.toString());
-
         }
         if(!req.getType().equals("")){
             createResponse(req, new PrintStream(
                     clientSocket.getOutputStream(), true));
         }in.close();
-
     }
     private void createResponse(Request req, PrintStream out) {
         if (req.getPath().equals("/")){

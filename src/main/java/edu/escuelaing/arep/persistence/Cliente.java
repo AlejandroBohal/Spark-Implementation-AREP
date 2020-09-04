@@ -3,8 +3,10 @@ package edu.escuelaing.arep.persistence;
 public class Cliente {
     private String nombre;
     private String empresa;
-    public Cliente(String nombre, String empresa){
+    private int edad;
+    public Cliente(String nombre,int edad, String empresa){
         this.nombre = nombre;
+        this.edad = edad;
         this.empresa = empresa;
     }
 
@@ -24,11 +26,20 @@ public class Cliente {
         this.empresa = empresa;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
                 "nombre='" + nombre + '\'' +
                 ", empresa='" + empresa + '\'' +
+                ", edad=" + edad +
                 '}';
     }
 }
